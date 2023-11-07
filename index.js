@@ -45,7 +45,7 @@ app.get('/', async function (req, res) {
 
     const api_allShoes = "https://shoe-api-jdec.onrender.com/api/shoes";
     const allShoes = (await axios.get(api_allShoes)).data;
-    console.log(allShoes);
+    // console.log(allShoes);
 
 
     res.render('shop', {
@@ -53,7 +53,10 @@ app.get('/', async function (req, res) {
     });
 });
 
-const PORT = process.env.PORT || 3000;
+
+
+
+const PORT = process.env.PORT || 3001;
 
 app.listen(PORT, function () {
     console.log('App started at port', PORT);

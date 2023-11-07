@@ -1,5 +1,8 @@
 <body>
     <header>
+        <video autoplay muted loop plays-inline>
+            <source src="/css/video (1080p).mp4" type="video/mp4" class="backVideo">
+        </video>
         <nav class="navbar">
             <div class="logo">L L S</div>
             <h1>Luba’s luxe shoes</h1>
@@ -20,61 +23,55 @@
         <br>
 
 
-        <div class="image-container">
-
-            <img src="/css/images/images.jpeg" class="large-image">
-            <img src="/css/images/0390d3ca029e486bc462a37b058a6a4e.jpg" class="medium-image">
-
-            <div>
-
-                <p>made with love :)</p>
-
-                <a href="#shopnow">
-                    <button class="shop-now-button">Shop now</button>
-                </a>
-            </div>
-
-
-            <img src="/css/images/brown-wingtips-best-stuff-5.webp" class="medium-image">
-            <img src="/css/images/maleModel.jpg" class="large-image">
-        </div>
 
 
     </header>
+
+    <section class="">
+        <div class="headerBtn">
+            <p>made with love :)</p>
+            <a href="#shopnow" class="shop-now-link">
+                <button class="shop-now-button">Shop now</button>
+            </a>
+
+
+
+        </div>
+
+    </section>
 
     <hr>
 
     <section id="shopnow">
         <div style="border: 2px solid #d2bd97; color: #d2bd97;">
-            <p>Filter</p>
+            <h3>Filter</h3>
 
-            <div class="paste-button">
-                <button class="button">Select brand &nbsp; ▼</button>
-                <div class="dropdown-content">
-                    <a id="top" href="">YSL</a>
-                    <a id="middle" href="">Dior</a>
-                    <a id="bottom" href="">Prada</a>
-                    <a id="bottom" href="">Jimmy Choo</a>
+            <div class="filter-group">
+                <div class="paste-button">
+                    <button class="button">Select brand &nbsp; ▼</button>
+                    <div class="dropdown-content">
+                        <a id="top" href="">YSL</a>
+                        <a id="middle" href="">Celine</a>
+                        <a id="bottom" href="">Prada</a>
+                        <a id="bottom" href="">Jimmy Choo</a>
+                        <a id="bottom" href="">Burberry</a>
+                    </div>
+                </div>
 
+                <div class="paste-button">
+                    <button class="button">Select size &nbsp; ▼</button>
+                    <div class="dropdown-content">
+                        <a id="top" href="#">4</a>
+                        <a id="top" href="#">5</a>
+                        <a id="middle" href="#">6</a>
+                        <a id="bottom" href="#">7</a>
+                        <a id="bottom" href="#">8</a>
+                        <a id="bottom" href="#">9</a>
+                    </div>
+                    <button>Filter</button>
                 </div>
             </div>
-            <br>
-
-            <p>Size</p>
-
-            <div class="paste-button">
-                <button class="button">Select size &nbsp; ▼</button>
-                <div class="dropdown-content">
-                    <a id="top" href="#">5</a>
-                    <a id="middle" href="#">6</a>
-                    <a id="bottom" href="#">7</a>
-                </div>
-            </div>
-            <br>
         </div>
-
-
-
 
         </div>
 
@@ -109,5 +106,20 @@
 
         </div>
     </section>
+    <!-- Add this script at the end of your HTML -->
+    <script>
+        document.querySelector('.shop-now-link').addEventListener('click', function (event) {
+            event.preventDefault();
+
+            const targetElement = document.getElementById('shopnow');
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    </script>
+
+
 
 </body>

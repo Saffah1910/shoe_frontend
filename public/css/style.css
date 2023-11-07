@@ -13,6 +13,7 @@ body {
     font-family: Kenao;
     background-color: #1a1c1d;
     color: #d2bd97 ;
+    padding-top: 50px;
     
 }
 
@@ -32,6 +33,12 @@ font-size: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #1a1c1d;
     
 }
 
@@ -131,6 +138,7 @@ font-size: 30px;
     border: 2px solid transparent;
     border-radius: 15px;
     cursor: pointer;
+    margin: 0;
   }
   
   .dropdown-content {
@@ -151,6 +159,7 @@ font-size: 30px;
     text-decoration: none;
     display: block;
     transition: 0.1s;
+    
   }
   
   .dropdown-content a:hover {
@@ -178,6 +187,16 @@ font-size: 30px;
   .paste-button:hover .dropdown-content {
     display: block;
   }
+
+
+  .filter-group {
+    display: flex;
+    gap: 10px; /* Adjust the gap as needed */
+}
+.paste-button {
+  position: relative;
+  display: inline-block;
+}
  
 .CartBtn {
     width: 140px;
@@ -275,7 +294,7 @@ font-size: 30px;
   align-items: center;
   text-align: center;
   padding: 20px 10px;
-  display: flex;
+
 
 }
 
@@ -318,3 +337,43 @@ font-size: 30px;
   margin: 20px;
   padding: 20px;
 }
+
+
+.box {
+
+  position: relative;
+  overflow: hidden;
+}
+video {
+  width: 100%;
+  max-width: 100%; /* Set the maximum width to 100% of its container */
+  height: auto;
+  display: block;
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+
+.headerBtn{
+  color: white;
+  font-size: 2em;
+  margin-bottom: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.backVideo{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
