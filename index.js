@@ -3,7 +3,7 @@ import { engine } from 'express-handlebars';
 import bodyParser from 'body-parser';
 import flash from 'express-flash';
 import session from 'express-session';
-import pgPromise from 'pg-promise';
+// import pgPromise from 'pg-promise';
 import Handlebars from 'handlebars';
 import axios from 'axios';
 // import 'dotenv/config';
