@@ -5,6 +5,7 @@ import flash from 'express-flash';
 import session from 'express-session';
 import pgPromise from 'pg-promise';
 import Handlebars from 'handlebars';
+import axios from 'axios';
 // import 'dotenv/config';
 
 // const connectionString = process.env.DATABASE_URL;
@@ -14,15 +15,15 @@ import Handlebars from 'handlebars';
 const app = express();
 
 app.engine(
-  'handlebars',
-  engine({
-    handlebars: Handlebars,
-    helpers: {
-      json: function (context) {
-        return JSON.stringify(context);
-      },
-    },
-  })
+    'handlebars',
+    engine({
+        handlebars: Handlebars,
+        helpers: {
+            json: function (context) {
+                return JSON.stringify(context);
+            },
+        },
+    })
 );
 
 app.set('view engine', 'handlebars');
@@ -31,21 +32,29 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use(
-  session({
-    secret: 'your-secret-key',
-    resave: false,
-    saveUninitialized: false,
-  })
+    session({
+        secret: 'your-secret-key',
+        resave: false,
+        saveUninitialized: false,
+    })
 );
 
 app.use(flash());
 
 app.get('/', async function (req, res) {
-  res.render('shoe');
+
+    const api_allShoes = "http://localhost:3014/api/shoes";
+    const allShoes = (await axios.get(api_allShoes)).data;
+    console.log(allShoes);
+
+
+    res.render('shop', {
+        allShoes
+    });
 });
 
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, function () {
-  console.log('App started at port', PORT);
+    console.log('App started at port', PORT);
 });
