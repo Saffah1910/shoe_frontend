@@ -48,11 +48,60 @@ app.get('/', async function (req, res) {
     // console.log(allShoes);
 
 
+  
+
+
     res.render('shop', {
-        allShoes
+        allShoes,
+       
     });
 });
 
+app.post('/filter', async function (req, res) {
+    try {
+        const selectedBrand = req.body.brand;
+        const selectedSize = req.body.size;
+        
+        if (selectedBrand === "default" && selectedSize === "default") {
+            // Handle case where no brand or size is selected (show all shoes)
+            const api_allShoes = "https://shoe-api-jdec.onrender.com/api/shoes";
+            const shoesData = (await axios.get(api_allShoes)).data;
+        
+            res.render('shop', {
+                allShoes: shoesData,
+            });
+        } else if (selectedBrand !== "default" && selectedSize === "default") {
+            // Handle case where only a brand is selected (filter by brand)
+            const api_brand = `https://shoe-api-jdec.onrender.com/api/shoes/brand/${selectedBrand}`;
+            const shoesData = (await axios.get(api_brand)).data;
+        
+            res.render('shop', {
+                allShoes: shoesData,
+            });
+        } else if (selectedBrand === "default" && selectedSize !== "default") {
+            // Handle case where only a size is selected (filter by size)
+            const api_size = `https://shoe-api-jdec.onrender.com/api/shoes/size/${selectedSize}`;
+            const shoesData = (await axios.get(api_size)).data;
+        
+            res.render('shop', {
+                allShoes: shoesData,
+            });
+        } else {
+            // Handle case where both brand and size are selected (filter by both)
+            const api_brand_and_size = `https://shoe-api-jdec.onrender.com/api/shoes/brand/${selectedBrand}/size/${selectedSize}`;
+            const shoesData = (await axios.get(api_brand_and_size)).data;
+        
+            res.render('shop', {
+                allShoes: shoesData,
+            });
+        }
+
+
+
+    } catch (error) {
+        console.error('Error fetching and filtering shoes:', error);
+    }
+});
 
 
 
