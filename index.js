@@ -70,6 +70,18 @@ app.post('/filter', async function (req, res) {
             res.render('shop', {
                 allShoes: shoesData,
             });
+
+            if (!shoesData || shoesData.length === 0) {
+                // No shoes found for the selected brand or size
+                return res.render('shop', {
+                    allShoes: [],
+                    message: 'No shoes found for the selected brand or size.',
+                });
+
+           
+            }
+            
+         
         } else if (selectedBrand !== "default" && selectedSize === "default") {
             // Handle case where only a brand is selected (filter by brand)
             const api_brand = `https://shoe-api-jdec.onrender.com/api/shoes/brand/${selectedBrand}`;
@@ -96,13 +108,15 @@ app.post('/filter', async function (req, res) {
             });
         }
 
-
-
     } catch (error) {
         console.error('Error fetching and filtering shoes:', error);
     }
 });
 
+
+app.get('/admin', (req, res) => {
+    res.render('newShoe');
+  });
 
 
 const PORT = process.env.PORT || 3001;

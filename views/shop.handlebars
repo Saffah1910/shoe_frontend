@@ -1,5 +1,5 @@
 <body>
-    <header>
+    <header class="hero">
         <video autoplay muted loop plays-inline>
             <source src="/css/video (1080p).mp4" type="video/mp4" class="backVideo">
         </video>
@@ -21,115 +21,136 @@
         </nav>
         <hr>
         <br>
- <section>
-        <div class="headerBtn">
-            <p>made with love :)</p>
-            <a href="#shopnow" class="shop-now-link">
-                <button class="shop-now-button">Shop now</button>
-            </a>
+        <section>
+            <div class="headerBtn">
+                <p>made with love :)</p>
+                <a href="#shopnow" class="shop-now-link">
+                    <button class="shop-now-button">Shop now</button>
+                </a>
 
 
 
-        </div>
+            </div>
 
-    </section>
+        </section>
 
 
 
     </header>
 
-   
 
-    <hr>
-
-    <section id="shopnow">
+    <section id="shopnow" class="shop-section">
+        <p>"Indulge in opulence and elevate your style with our curated collection of exquisite, handcrafted pieces,
+            where luxury meets sophistication in every detail."</p>
         <form action="/filter" method="post" id="filterForm">
-            <div style="border: 2px solid #d2bd97; color: #d2bd97;">
-                <h3>Filter</h3>
-
-                <div class="filter-group">
-                    <div class="paste-button">
-                        <select id="brandSelect" name="brand">
-                            <option value="default">Select brand</option>
-                            <option value="ysl">YSL</option>
-                            <option value="Celine">Celine</option>
-                            <option value="Prada">Prada</option>
-                            <option value="Jimmy Choo">Jimmy Choo</option>
-                            <option value="Burberry">Burberry</option>
-                        </select>
-                        <select id="sizeSelect" name="size">
-                            <option value="default">Select size</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                        </select>
-                    </div>
-                    <button type="submit" id="filterButton">Filter</button>
-
+            <div class="filter-group">
+                <div class="paste-button">
+                    <select id="brandSelect" name="brand">
+                        <option value="default">Select brand</option>
+                        <option value="ysl">YSL</option>
+                        <option value="Celine">Celine</option>
+                        <option value="Prada">Prada</option>
+                        <option value="Jimmy Choo">Jimmy Choo</option>
+                        <option value="Burberry">Burberry</option>
+                    </select>
+                    <select id="sizeSelect" name="size">
+                        <option value="default">Select size</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                    </select>
                 </div>
-
-
+                <button type="submit" id="filterButton">Filter</button>
             </div>
         </form>
         <a href="/" class="view-all-link">
-            <button type="button">View all</button>
+            <button type="button" class="viewAllBtn">View all</button>
         </a>
 
-
-        <div class="allshoesbox" style=" display: grid;
-    grid-template-columns: repeat(3, 2fr); ">
-
-            {{#each allShoes}}
-            <div class="card">
-
-                <img src="{{image_url}}" alt="Card Image">
-
-                <div class="card-content">
-                    <div class="card-title">{{brand}}</div>
-                    <div class="card-description">
-                        Color: {{color}}, Size: {{size}}, Price: R {{price}}, In Stock: {{in_stock}}
+        <div class="allshoes-container">
+            <div class="allshoesbox">
+                {{#each allShoes}}
+                <div class="card">
+                    <img src="{{image_url}}" alt="Card Image">
+                    <div class="card-content">
+                        <div class="card-title">{{brand}}</div>
+                        <div class="card-description">
+                            Color: {{color}}, Size: {{size}}, Price: R {{price}}, In Stock: {{in_stock}}
+                        </div>
                     </div>
+                    <button class="CartBtn">
+                        <span class="IconContainer">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512"
+                                fill="rgb(17, 17, 17)" class="cart">
+                                <path
+                                    d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z">
+                                </path>
+                            </svg>
+                        </span>
+                        <p class="text">Add to Cart</p>
+                    </button>
                 </div>
-                <button class="CartBtn">
-                    <span class="IconContainer">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512"
-                            fill="rgb(17, 17, 17)" class="cart">
-                            <path
-                                d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z">
-                            </path>
-                        </svg>
-                    </span>
-                    <p class="text">Add to Cart</p>
-                </button>
+                {{/each}}
             </div>
-            {{/each}}
-
         </div>
     </section>
 
-    {{!-- this scrpt tag contain instrcution for shop nw btton and also when user filters it shouldnt direct to landing page --}}
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Add an event listener to the form
-        document.getElementById('filterForm').addEventListener('submit', async function (event) {
-            event.preventDefault(); // Prevent the default form submission behavior
 
-            // Your existing AJAX or form handling logic here
-            const selectedBrand = document.getElementById('brandSelect').value;
-            const selectedSize = document.getElementById('sizeSelect').value;
+    {{!-- this scrpt tag contain instrcution for shop nw btton and also when user filters it shouldnt direct to landing
+    page --}}
 
-            // Build the API URL based on selected brand and size
-            const api_url = `/filter?brand=${selectedBrand}&size=${selectedSize}`;
-            
-            try {
-                const response = await fetch(api_url);
-                const data = await response.json();
-                
-                // Handle the data as needed
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Add an event listener to the form
+            document.getElementById('filterForm').addEventListener('submit', async function (event) {
+                event.preventDefault(); // Prevent the default form submission behavior
+
+                // Your existing AJAX or form handling logic here
+                const selectedBrand = document.getElementById('brandSelect').value;
+                const selectedSize = document.getElementById('sizeSelect').value;
+
+                // Build the API URL based on selected brand and size
+                const api_url = `/filter?brand=${selectedBrand}&size=${selectedSize}`;
+
+                try {
+                    const response = await fetch(api_url);
+                    const data = await response.json();
+
+                    // Handle the data as needed
+
+                    // Scroll to the "shopnow" section
+                    const targetElement = document.getElementById('shopnow');
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                        });
+                    }
+                } catch (error) {
+                    console.error('Error fetching data:', error);
+                }
+
+                // Submit the form after handling the scrolling
+                this.submit();
+            });
+
+            // Add an event listener for the "Shop now" link
+            document.querySelector('.shop-now-link').addEventListener('click', function (event) {
+                event.preventDefault();
+
+                // Set the URL with the anchor to trigger smooth scrolling
+                window.location.href = `${window.location.pathname}#shopnow`;
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Add an event listener to the form
+            document.getElementById('filterForm').addEventListener('submit', function (event) {
+                // Your existing form handling logic here
 
                 // Scroll to the "shopnow" section
                 const targetElement = document.getElementById('shopnow');
@@ -138,49 +159,20 @@
                         behavior: 'smooth',
                     });
                 }
-            } catch (error) {
-                console.error('Error fetching data:', error);
-            }
 
-            // Submit the form after handling the scrolling
-            this.submit();
+                // Prevent the default form submission behavior
+                event.preventDefault();
+            });
+
+            // Add an event listener for the "Shop now" link
+            document.querySelector('.shop-now-link').addEventListener('click', function (event) {
+                event.preventDefault();
+
+                // Set the URL with the anchor to trigger smooth scrolling
+                window.location.href = `${window.location.pathname}#shopnow`;
+            });
         });
-
-        // Add an event listener for the "Shop now" link
-        document.querySelector('.shop-now-link').addEventListener('click', function (event) {
-            event.preventDefault();
-
-            // Set the URL with the anchor to trigger smooth scrolling
-            window.location.href = `${window.location.pathname}#shopnow`;
-        });
-    });
-</script><script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Add an event listener to the form
-        document.getElementById('filterForm').addEventListener('submit', function (event) {
-            // Your existing form handling logic here
-
-            // Scroll to the "shopnow" section
-            const targetElement = document.getElementById('shopnow');
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                });
-            }
-
-            // Prevent the default form submission behavior
-            event.preventDefault();
-        });
-
-        // Add an event listener for the "Shop now" link
-        document.querySelector('.shop-now-link').addEventListener('click', function (event) {
-            event.preventDefault();
-
-            // Set the URL with the anchor to trigger smooth scrolling
-            window.location.href = `${window.location.pathname}#shopnow`;
-        });
-    });
-</script>
+    </script>
 
 
 

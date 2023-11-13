@@ -10,7 +10,7 @@
 
 body {
     margin: 0;
-    font-family: Kenao;
+    /* font-family: Kenao; */
     background-color: #1a1c1d;
     color: #d2bd97 ;
     padding-top: 50px;
@@ -375,5 +375,83 @@ video {
   right: 0;
   bottom: 0;
   z-index: -1;
+}
+
+/* Add this to your existing styles or create a new section for form styling */
+#filterForm {
+  margin: 20px;
+}
+
+#filterForm h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.paste-button {
+  display: flex;
+  gap: 10px;
+}
+
+select {
+  padding: 8px;
+  font-size: 14px;
+}
+
+#filterButton {
+  background-color: #d2bd97;
+  color: #1a1c1d;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+#filterButton:hover {
+  background-color: #1a1c1d;
+  color: #d2bd97;
+}
+
+.viewAllBtn {
+  background-color: #d2bd97;
+  color: #1a1c1d;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.viewAllBtn:hover {
+  background-color: #1a1c1d;
+  color: #d2bd97;
+}
+.shop-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.filter-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.allshoes-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.allshoesbox {
+  display: grid;
+  grid-template-columns: repeat(3, 2fr);
+  gap: 20px;
 }
 
