@@ -1,29 +1,36 @@
 <body>
     <h2>Add a New Shoe</h2>
+    <div>
+        demo links if you want to add a new shoe
+        <li>BLUE: <span>https://www.europaart.co.za/wp-content/uploads/2023/01/LI220557_BLUE1.jpg</span> </li>
+        <li>GREEN: <span>https://www.europaart.co.za/wp-content/uploads/2023/05/GS230054_GREEN1-510x510.jpg</span></li>
+        <li>WHITE: <span>https://www.europaart.co.za/wp-content/uploads/2021/07/LIB21019_WHITE-510x510.jpg</span></li>
+        <li>YELLOW: <span>https://www.europaart.co.za/wp-content/uploads/2023/01/LI220538_YELLOW1.jpg</span></li>
+        <li>BLACK: <span>https://www.europaart.co.za/wp-content/uploads/2023/06/GS230009_BLACK1-510x510-1.jpg</span></li>
 
-  <form action="/admin" method="get">
-    <label for="brand">Brand:</label>
-    <input type="text" id="brand" name="brand" required>
-<br>
-    <label for="size">Size:</label>
-    <input type="number" id="size" name="size" required>
-<br>
-    <label for="color">Color:</label>
-    <input type="text" id="color" name="color" required>
-<br>
-    <label for="price">Price:</label>
-    <input type="number" id="price" name="price" required>
-<br>
+    </div>
 
-    <label for="quantity">Quantity in Stock:</label>
-    <input type="number" id="quantity" name="quantity" required>
+    <form action="/admin" method="post">
+        <label for="color">Color:</label>
+        <input type="text" id="color" name="color" required>
+        <br>
+        <label for="brand">Brand:</label>
+        <input type="text" id="brand" name="brand" required>
+        <br>
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" required>
+        <br>
+        <label for="size">Size:</label>
+        <input type="number" id="size" name="size" required>
+        <br>
+        <label for="quantity">Quantity in Stock:</label>
+        <input type="number" id="quantity" name="in_stock" required>
+        <br>
+        <label for="price">Picture URL:</label>
+        <input type="text" id="picture" name="img_url" required>
+        <br>
 
-<br>
-    <label for="price">Picture URL:</label>
-    <input type="text" id="picture" name="picture" required>
-    <br>
-
-    <button type="submit">Add Shoe</button>
-  </form>
+        <button type="submit">Add Shoe</button>
+    </form>
 
 </body>

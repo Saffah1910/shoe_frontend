@@ -62,14 +62,29 @@
                         <option value="8">8</option>
                         <option value="9">9</option>
                     </select>
+                    <select id="sizeColor" name="color">
+                        <option value="default">Select color</option>
+                        <option value="black">black</option>
+                        <option value="white">white</option>
+                        <option value="red">red</option>
+                        <option value="yellow">yellow</option>
+                        <option value="pink">pink</option>
+                        <option value="green">green</option>
+                        <option value="blue">blue</option>
+                        <option value="brown">brown</option>
+                    </select>
                 </div>
-                <button type="submit" id="filterButton">Filter</button>
-            </div>
-        </form>
-        <a href="/" class="view-all-link">
+                <a href="#shopnow">
+
+                    <button type="submit" id="filterButton">Filter</button>
+                </a>
+                   <a href="/" class="view-all-link">
             <button type="button" class="viewAllBtn">View all</button>
         </a>
 
+            </div>
+        </form>
+     
         <div class="allshoes-container">
             <div class="allshoesbox">
                 {{#each allShoes}}
@@ -103,76 +118,6 @@
     {{!-- this scrpt tag contain instrcution for shop nw btton and also when user filters it shouldnt direct to landing
     page --}}
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Add an event listener to the form
-            document.getElementById('filterForm').addEventListener('submit', async function (event) {
-                event.preventDefault(); // Prevent the default form submission behavior
-
-                // Your existing AJAX or form handling logic here
-                const selectedBrand = document.getElementById('brandSelect').value;
-                const selectedSize = document.getElementById('sizeSelect').value;
-
-                // Build the API URL based on selected brand and size
-                const api_url = `/filter?brand=${selectedBrand}&size=${selectedSize}`;
-
-                try {
-                    const response = await fetch(api_url);
-                    const data = await response.json();
-
-                    // Handle the data as needed
-
-                    // Scroll to the "shopnow" section
-                    const targetElement = document.getElementById('shopnow');
-                    if (targetElement) {
-                        targetElement.scrollIntoView({
-                            behavior: 'smooth',
-                        });
-                    }
-                } catch (error) {
-                    console.error('Error fetching data:', error);
-                }
-
-                // Submit the form after handling the scrolling
-                this.submit();
-            });
-
-            // Add an event listener for the "Shop now" link
-            document.querySelector('.shop-now-link').addEventListener('click', function (event) {
-                event.preventDefault();
-
-                // Set the URL with the anchor to trigger smooth scrolling
-                window.location.href = `${window.location.pathname}#shopnow`;
-            });
-        });
-    </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Add an event listener to the form
-            document.getElementById('filterForm').addEventListener('submit', function (event) {
-                // Your existing form handling logic here
-
-                // Scroll to the "shopnow" section
-                const targetElement = document.getElementById('shopnow');
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth',
-                    });
-                }
-
-                // Prevent the default form submission behavior
-                event.preventDefault();
-            });
-
-            // Add an event listener for the "Shop now" link
-            document.querySelector('.shop-now-link').addEventListener('click', function (event) {
-                event.preventDefault();
-
-                // Set the URL with the anchor to trigger smooth scrolling
-                window.location.href = `${window.location.pathname}#shopnow`;
-            });
-        });
-    </script>
 
 
 
