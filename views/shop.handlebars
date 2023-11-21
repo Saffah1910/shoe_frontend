@@ -78,15 +78,16 @@
 
                     <button type="submit" id="filterButton">Filter</button>
                 </a>
-                   <a href="/" class="view-all-link">
-            <button type="button" class="viewAllBtn">View all</button>
-        </a>
+                <a href="/" class="view-all-link">
+                    <button type="button" class="viewAllBtn">View all</button>
+                </a>
 
             </div>
         </form>
-     
+
         <div class="allshoes-container">
             <div class="allshoesbox">
+                {{#if allShoes.length}}
                 {{#each allShoes}}
                 <div class="card">
                     <img src="{{image_url}}" alt="Card Image">
@@ -109,7 +110,21 @@
                     </button>
                 </div>
                 {{/each}}
+                {{else}}
+                <!-- Illustration or message for no stock found -->
+                <div class="no-stock-found">
+                    {{!-- <p>No stock found</p> --}}
+                    {{!-- <img src="/css/images/Limited Stock Product Order Instagram Post.png"> --}}
+                    <div style="margin:0; margin-left:125%" class="image-container">
+                        <img style="height: 80dvh; justify-content:center; align-items:center"
+                            src="/css/images/Limited Stock Product Order Instagram Post (1).png">
+
+                    </div>
+                    <!-- Add your illustration or additional message here -->
+                </div>
+                {{/if}}
             </div>
+
         </div>
     </section>
 

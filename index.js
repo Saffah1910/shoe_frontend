@@ -57,7 +57,7 @@ app.post('/filter', async function (req, res) {
     try {
         const selectedBrand = req.body.brand;
         const selectedSize = req.body.size;
-        const selectedColor = req.body.color
+        const selectedColor = req.body.color;
 
         if (selectedBrand === "default" && selectedSize === "default" && selectedColor === "default") {
             // Handle case where no brand or size is selected (show all shoes)
